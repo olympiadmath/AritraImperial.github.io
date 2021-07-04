@@ -74,6 +74,38 @@
       <p>It has been written by Arkan Manva aka Phoenixfire and a little modified by me which explores the pqr method in inequalites in details.</p>
 
 
+     <h1> <b>Problems by me</b></h1>
+      
+      Below are some problems which got proposed by me and were used in various contest, for now I will write down my some FE problems
+       Find all solutions for $f:\mathbb{Z}\rightarrow\mathbb{Z}$ satisfying
+                $$f(y+f(x))+f(x+f(y))-2=f(3-y)+f(3-x)$$
+      
+      The problem has no solution but that does not makes the problem, let $P(x,y)$ denote the equation.
+      
+      First, $P(x,x)$ implies that $f(x+f(x))=f(3-x)+1$. This implies that for any $a\in R_f$, we must also have $a+1\in R_f$ (here, $R_f$ is the range of $f$).
+
+Thus, $R_f$ must either be of the form $[a,\infty)\cap \mathbb{Z}$ for some $a\in\mathbb{Z}$ or $\mathbb{Z}$. We will prove that it can only be $\mathbb{Z}$.
+
+For the sake of contradiction, assume that $R_f$ has minimum element $a$. Thus, there exists $k\in\mathbb{Z}$ such that $f(k)=a$.
+
+$P(x,y)+P(3-x-f(y),y)$ implies that $f(y+f(x))+f(y+f(3-x-f(y)))-4=2f(3-y)$. Plugging in $y\to 3-k$ gives $f(3-k+f(x))=2a+4-f(3-k+f(3-x-f(3-k)))\le a-4$. Since $3-k+f(x)$ can be any integer not less than $3-k+a$, we get that $a\le f(x)\le a+4$ for all $x\ge 3-k+a$.
+
+For any $y\ge 3-k$, we would have $y+f(x)\ge 3-k+a$ and $y+f(3-x-f(y))\ge 3-k+a$. Thus, by the previous equation and bound, we cound get $2a-4\le 2f(3-y)\le 2a+4$ for any $y\ge 3-k$. In particular, we have $f(y)\le a+2$ for any $y\le k$.
+
+This means that $f^{-1}([a+5,\infty)\cup\mathbb{Z})$ must be a finite set, at every element in it must be larger than $k$ but smaller than $3-k+a$. However, since $[a+5,\infty)\cup\mathbb{Z}$ is a subset of the range, its pre-image must be infinite, a contradiction.
+
+Thus, $f$ is surjective. This means that there's an integer $b$ such that $f(b)=0$. Now, we will prove the following statement by induction:
+
+"for any $n\ge 0$, we have $f(3+n-b)=-2n-1,f(2-n-b)=2n+1,f(b+n)=-2n,f(b-n)=2n$"
+
+We'll use $P(x,x)$ as the main part of the proof.
+
+To prove the base case, we see that $P(b,b)$ implies that $f(3-b)=-1$ and then $P(3-b,3-b)$ implies that $f(2-b)=1$.
+
+For inductive step. Assume that the statement is true for $n<k$, then $P(3-k-b,3-k-b)$ implies that $f(b+k)=-2k$. $P(b+k,b+k)$ implies that $f(b-k)=2k$. $P(b-k,b-k)$ implies that $f(3+k-b)=-2k-1$, and $P(3+k-b,3+k-b)$ implies that $f(2-k-b)=2k+1$. Thus, we are done.
+
+From this, we can finish the problem: notice that $f(b+n)$ is even both when $n\ge 0$ and when $n\le 0$. Thus, the odd number cannot be in the range. This contradicts with the fact that $f$ is surjective and thus there's no solution.
+      
 
     </div>
     <html-include src="footer.html"></html-include>
